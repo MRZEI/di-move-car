@@ -1,0 +1,416 @@
+@import "/style/shared.wxss";
+
+/* App Shell Container */
+.app-shell {
+  width: 375px;
+  min-height: 812px;
+  background-color: #0A0A0A;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   Status Bar Area
+   ======================================== */
+.status-bar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  padding-top: env(safe-area-inset-top);
+}
+
+.status-time {
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.signal-icon {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.signal-bar {
+  width: 3px;
+  background-color: #FFFFFF;
+  border-radius: 1px;
+}
+
+.signal-bar:nth-child(1) {
+  height: 4px;
+}
+
+.signal-bar:nth-child(2) {
+  height: 7px;
+}
+
+.signal-bar:nth-child(3) {
+  height: 10px;
+}
+
+.signal-bar:nth-child(4) {
+  height: 13px;
+}
+
+.signal-bar-inactive {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.wifi-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.wifi-svg {
+  width: 16px;
+  height: 16px;
+  color: #FFFFFF;
+}
+
+.battery-icon {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.battery-body {
+  width: 22px;
+  height: 10px;
+  border: 1px solid #FFFFFF;
+  border-radius: 2px;
+  padding: 1px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.battery-level {
+  height: 100%;
+  background-color: #FFFFFF;
+  border-radius: 1px;
+}
+
+.battery-tip {
+  width: 2px;
+  height: 5px;
+  background-color: #FFFFFF;
+  border-radius: 0 1px 1px 0;
+}
+
+/* ========================================
+   App Header
+   ======================================== */
+.app-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.notification-bell {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bell-svg {
+  width: 24px;
+  height: 24px;
+  color: #FFFFFF;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #E8FF00;
+  border-radius: 50%;
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+.main-content {
+  padding: 0 16px;
+}
+
+/* Quick Action Area */
+.quick-action-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0 32px;
+}
+
+.notify-move-btn {
+  height: 56px;
+  background-color: #E8FF00;
+  color: #0A0A0A;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 4px 12px rgba(232, 255, 0, 0.3);
+}
+
+.notify-move-btn::after {
+  border: none;
+}
+
+.notify-move-btn:active {
+  background-color: #D4EC00;
+  transform: scale(0.98);
+}
+
+.action-subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 12px;
+}
+
+/* ========================================
+   Section Card (shared card style)
+   ======================================== */
+.section-card {
+  background-color: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.section-link {
+  font-size: 13px;
+  color: #E8FF00;
+}
+
+/* ========================================
+   Vehicles Section
+   ======================================== */
+.plate-list {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.plate-list::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.plate-list {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.plate-item {
+  flex-shrink: 0;
+  background-color: #0A0A0A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px 20px;
+}
+
+.plate-item-active {
+  border: 1px solid #E8FF00;
+}
+
+.plate-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+}
+
+.plate-item-active .plate-text {
+  color: #E8FF00;
+}
+
+/* ========================================
+   Notifications Section
+   ======================================== */
+.notification-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0A0A0A;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-left: 3px solid transparent;
+}
+
+.notification-card:last-child {
+  margin-bottom: 0;
+}
+
+.notification-urgent {
+  border-left-color: #F87171;
+}
+
+.notification-resolved {
+  border-left-color: #34D399;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notification-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.notification-subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.notification-badge {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.badge-urgent {
+  background-color: rgba(248, 113, 113, 0.12);
+}
+
+.badge-resolved {
+  background-color: rgba(52, 211, 153, 0.12);
+}
+
+.badge-text {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.badge-urgent .badge-text {
+  color: #F87171;
+}
+
+.badge-resolved .badge-text {
+  color: #34D399;
+}
+
+/* ========================================
+   Stats Card
+   ======================================== */
+.stats-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 16px;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 4px;
+}
+
+.stats-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: #E8FF00;
+}
+
+.stats-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.stats-divider {
+  width: 1px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   Tab Bar Override (page level)
+   ======================================== */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 83px;
+  padding-top: 6px;
+  padding-bottom: 34px;
+  background: #141414;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  box-sizing: border-box;
+  z-index: 100;
+}
