@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/notify-move/notify-move",
+    "pages/move-detail/move-detail",
+    "pages/profile/profile",
+    "pages/profile-qr/profile-qr"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0A0A0A",
+    "navigationBarTitleText": "DI挪车",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0A0A0A"
+  },
+  "tabBar": {
+    "color": "rgba(255,255,255,0.6)",
+    "selectedColor": "#E8FF00",
+    "backgroundColor": "#141414",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/notify-move/notify-move",
+        "text": "通知挪车",
+        "iconPath": "assets/icons/notify.png",
+        "selectedIconPath": "assets/icons/notify-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/icons/profile.png",
+        "selectedIconPath": "assets/icons/profile-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于定位附近车辆和发送挪车通知"
+    }
+  },
+  "requiredBackgroundModes": ["audio", "location"],
+  "usingComponents": {},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
