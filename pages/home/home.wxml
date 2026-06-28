@@ -1,0 +1,116 @@
+<view class="app-shell">
+  <!-- Status Bar Area -->
+  <view class="status-bar">
+    <text class="status-time">9:41</text>
+    <view class="status-icons">
+      <view class="signal-icon">
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+        <view class="signal-bar signal-bar-inactive"></view>
+      </view>
+      <view class="wifi-icon">
+        <svg viewBox="0 0 24 24" class="wifi-svg">
+          <path d="M12 18c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-6.31-3.75L1.5 10l4.19 4.25 1.41-1.41L5.7 11h12.6l-2.6-2.16 1.41-1.41-4.19-4.25-4.19 4.25zm9.62-6.02c-.73-.77-1.94-.77-2.65-.01L12 8.5l-.56-.28L12 3l.56 5.22L16 8.23c.71.74.71 1.95 0 2.68l.01.01c-.73.77-1.94.77-2.65.01L12 9.5l-1.36 1.43-1.36-1.43-1.36 1.43-1.36-1.43-2.16 2.16c-.73.77-.73 2.03.01 2.77l.56.56 1.36-1.43 1.36 1.43 1.36-1.43 1.36 1.43 1.36-1.43 1.36 1.43 2.16-2.16c.77-.74.77-1.95.01-2.68z" fill="currentColor"/>
+        </svg>
+      </view>
+      <view class="battery-icon">
+        <view class="battery-body">
+          <view class="battery-level" style="width: 80%;"></view>
+        </view>
+        <view class="battery-tip"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- App Header -->
+  <view class="app-header">
+    <view class="header-left">
+      <image src="/assets/brand-logo.jpg" class="brand-logo" mode="aspectFit" />
+      <text class="brand-name">DI挪车</text>
+    </view>
+    <view class="header-right">
+      <view class="notification-bell">
+        <svg viewBox="0 0 24 24" class="bell-svg">
+          <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="currentColor"/>
+        </svg>
+        <view class="notification-dot"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Main Content -->
+  <view class="main-content">
+    <!-- Quick Action Area -->
+    <view class="quick-action-area">
+      <button class="notify-move-btn" bindtap="goToNotifyMove">
+        一键挪车
+      </button>
+      <text class="action-subtitle">扫码/输入车牌，快速通知车主</text>
+    </view>
+
+    <!-- My Vehicles Section -->
+    <view class="section-card vehicles-section">
+      <view class="section-header">
+        <text class="section-title">我的车辆</text>
+        <text class="section-link" bindtap="goToManageVehicles">管理 ></text>
+      </view>
+      <scroll-view class="plate-list no-scrollbar" scroll-x="true">
+        <view class="plate-item plate-item-active">
+          <text class="plate-text">京A·88888</text>
+        </view>
+        <view class="plate-item">
+          <text class="plate-text">沪B·66666</text>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- Recent Notifications Section -->
+    <view class="section-card notifications-section">
+      <view class="section-header">
+        <text class="section-title">最近通知</text>
+        <text class="section-link" bindtap="goToNotifyPage">查看全部 ></text>
+      </view>
+      
+      <!-- Notification Card 1 - Urgent -->
+      <view class="notification-card notification-urgent" bindtap="goToMoveDetail" data-id="1">
+        <view class="notification-content">
+          <text class="notification-title">您的车辆被挡</text>
+          <text class="notification-subtitle">京C·12345 挡在您车位 · 3分钟前</text>
+        </view>
+        <view class="notification-badge badge-urgent">
+          <text class="badge-text">待处理</text>
+        </view>
+      </view>
+
+      <!-- Notification Card 2 - Resolved -->
+      <view class="notification-card notification-resolved" bindtap="goToMoveDetail" data-id="2">
+        <view class="notification-content">
+          <text class="notification-title">挪车成功</text>
+          <text class="notification-subtitle">京A·88888 已挪走 · 2小时前</text>
+        </view>
+        <view class="notification-badge badge-resolved">
+          <text class="badge-text">已处理</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Stats Bar -->
+    <view class="section-card stats-card">
+      <view class="stats-item">
+        <text class="stats-number">12</text>
+        <text class="stats-label">本月通知 (次)</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-number">5</text>
+        <text class="stats-label">平均响应 (分钟)</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-number">98%</text>
+        <text class="stats-label">成功率</text>
+      </view>
+    </view>
+  </view>
+</view>
