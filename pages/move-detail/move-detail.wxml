@@ -1,0 +1,102 @@
+<view class="page-container">
+  <!-- Status Bar -->
+  <view class="status-bar">
+    <text class="status-time">9:41</text>
+    <view class="status-icons">
+      <text class="icon-signal">●●●●</text>
+      <text class="icon-wifi">↔</text>
+      <text class="icon-battery">██░░</text>
+    </view>
+  </view>
+
+  <!-- Navigation Bar -->
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="onBackTap">
+      <text class="back-icon">&lt;</text>
+      <text class="back-text">返回</text>
+    </view>
+    <text class="nav-title">挪车详情</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- Main Content -->
+  <scroll-view class="content-area" scroll-y>
+    <!-- Status Hero Section -->
+    <view class="status-hero">
+      <view class="status-icon-circle">
+        <text class="car-icon">🚗</text>
+      </view>
+      <text class="status-text">待处理</text>
+      <text class="status-subtitle">已通知车主，等待响应中...</text>
+    </view>
+
+    <!-- License Plate Card -->
+    <view class="plate-card">
+      <text class="plate-number">京C·12345</text>
+      <text class="plate-type">小型汽车 · 蓝牌</text>
+      <text class="block-time">挡车时间: 14:30</text>
+    </view>
+
+    <!-- Location Info Card -->
+    <view class="location-card">
+      <text class="section-title">位置信息</text>
+      <text class="address-text">朝阳区望京SOHO B2-156</text>
+      <view class="map-placeholder">
+        <text class="map-text">查看地图</text>
+      </view>
+      <text class="parking-info">B2层 · A区 · 156号车位</text>
+    </view>
+
+    <!-- Timeline Section -->
+    <view class="timeline-section">
+      <text class="section-title">处理进度</text>
+      
+      <view class="timeline-item completed">
+        <view class="timeline-dot">
+          <text class="check-icon">✓</text>
+        </view>
+        <view class="timeline-line"></view>
+        <view class="timeline-content">
+          <text class="timeline-title">发起通知</text>
+          <text class="timeline-time">今天 14:32</text>
+        </view>
+      </view>
+
+      <view class="timeline-item completed">
+        <view class="timeline-dot">
+          <text class="check-icon">✓</text>
+        </view>
+        <view class="timeline-line"></view>
+        <view class="timeline-content">
+          <text class="timeline-title">通知已送达</text>
+          <text class="timeline-time">今天 14:33</text>
+          <text class="timeline-desc">短信+推送已发送</text>
+        </view>
+      </view>
+
+      <view class="timeline-item pending">
+        <view class="timeline-dot pending-dot">
+          <text class="pending-icon">○</text>
+        </view>
+        <view class="timeline-line last"></view>
+        <view class="timeline-content">
+          <text class="timeline-title">等待车主响应</text>
+          <text class="timeline-time warning">进行中</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Spacer for bottom action bar -->
+    <view class="bottom-spacer"></view>
+  </scroll-view>
+
+  <!-- Bottom Action Bar -->
+  <view class="action-bar">
+    <view class="action-btn remind-btn" bindtap="onRemindAgain">
+      <text class="remind-text">再次通知</text>
+    </view>
+    <view class="action-btn call-btn" bindtap="onCallPhone">
+      <text class="call-text">拨打电话</text>
+    </view>
+  </view>
+</view>
