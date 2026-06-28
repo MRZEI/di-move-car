@@ -1,0 +1,30 @@
+<view class="tab-bar">
+  <view
+    class="tab-item {{active === index ? 'active' : ''}}"
+    wx:for="{{tabList}}"
+    wx:key="index"
+    data-index="{{index}}"
+    bindtap="onTabTap"
+  >
+    <view class="tab-icon">
+      <image
+        wx:if="{{item.icon}}"
+        src="{{active === index ? item.icon : item.inactiveIcon || item.icon}}"
+        mode="aspectFit"
+        class="icon-img"
+      />
+      <view wx:else class="icon-svg-wrapper">
+        <svg wx:if="{{index === 0}}" viewBox="0 0 24 24" class="icon-svg">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/>
+        </svg>
+        <svg wx:elif="{{index === 1}}" viewBox="0 0 24 24" class="icon-svg">
+          <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="currentColor"/>
+        </svg>
+        <svg wx:else viewBox="0 0 24 24" class="icon-svg">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
+        </svg>
+      </view>
+    </view>
+    <text class="tab-text">{{item.text}}</text>
+  </view>
+</view>
