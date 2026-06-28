@@ -1,0 +1,94 @@
+<view class="page" style="background: #0A0A0A; min-height: 100vh;">
+  <!-- Status Bar Area -->
+  <view class="status-bar" style="height: 44px;"></view>
+
+  <!-- Profile Header -->
+  <view class="profile-header">
+    <view class="avatar-container">
+      <view class="avatar">
+        <view class="avatar-icon user-icon"></view>
+      </view>
+    </view>
+    <view class="name">张先生</view>
+    <view class="phone">138****8888</view>
+    <view class="verified-badge">已认证</view>
+  </view>
+
+  <!-- My Vehicles Section -->
+  <view class="card vehicles-card">
+    <view class="card-header">
+      <text class="card-title">我的车辆</text>
+      <text class="card-action" bindtap="onAddVehicle">添加</text>
+    </view>
+    <view class="vehicle-item" wx:for="{{vehicles}}" wx:key="index">
+      <view class="vehicle-info">
+        <view class="vehicle-icon-wrapper">
+          <view class="vehicle-icon car-icon"></view>
+        </view>
+        <view class="vehicle-details">
+          <view class="vehicle-plate">{{item.plate}}</view>
+          <view class="vehicle-type">{{item.type}}</view>
+        </view>
+      </view>
+      <view class="vehicle-divider" wx:if="{{index < vehicles.length - 1}}"></view>
+    </view>
+  </view>
+
+  <!-- Statistics Card -->
+  <view class="card stats-card">
+    <view class="stats-row">
+      <view class="stat-item">
+        <view class="stat-value">{{stats.notifications}}</view>
+        <view class="stat-label">通知次数</view>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <view class="stat-value">{{stats.successRate}}</view>
+        <view class="stat-label">成功率</view>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <view class="stat-value">{{stats.rating}}</view>
+        <view class="stat-label">评分</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Settings List Card -->
+  <view class="card settings-card">
+    <view class="settings-list">
+      <view class="settings-item" bindtap="onSettingTap" data-setting="message">
+        <text class="settings-label">消息设置</text>
+        <view class="settings-chevron"></view>
+      </view>
+      <view class="settings-divider"></view>
+      <view class="settings-item" bindtap="onSettingTap" data-setting="privacy">
+        <text class="settings-label">隐私设置</text>
+        <view class="settings-chevron"></view>
+      </view>
+      <view class="settings-divider"></view>
+      <view class="settings-item" bindtap="onSettingTap" data-setting="doNotDisturb">
+        <text class="settings-label">通知免打扰</text>
+        <view class="toggle-switch active" bindtap="onToggleChange" data-setting="doNotDisturb">
+          <view class="toggle-circle"></view>
+        </view>
+        <view class="settings-chevron"></view>
+      </view>
+      <view class="settings-divider"></view>
+      <view class="settings-item" bindtap="onSettingTap" data-setting="help">
+        <text class="settings-label">帮助与反馈</text>
+        <view class="settings-chevron"></view>
+      </view>
+      <view class="settings-divider"></view>
+      <view class="settings-item" bindtap="onSettingTap" data-setting="about">
+        <text class="settings-label">关于DI挪车</text>
+        <view class="settings-chevron"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Bottom Action -->
+  <view class="logout-action" bindtap="onLogout">
+    <text class="logout-text">退出登录</text>
+  </view>
+</view>
