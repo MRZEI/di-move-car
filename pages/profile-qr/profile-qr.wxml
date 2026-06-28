@@ -1,0 +1,242 @@
+<view class="page-container">
+  <!-- Status Bar Area -->
+  <view class="status-bar">
+    <text class="status-bar-time">9:41</text>
+    <view class="status-bar-icons">
+      <image src="/assets/icons/signal.svg" mode="aspectFit" class="status-icon" />
+      <image src="/assets/icons/wifi.svg" mode="aspectFit" class="status-icon" />
+      <image src="/assets/icons/battery.svg" mode="aspectFit" class="status-icon" />
+    </view>
+  </view>
+
+  <!-- Main Content -->
+  <scroll-view class="main-content" scroll-y="true">
+
+    <!-- ===== Profile Header ===== -->
+    <view class="profile-header">
+      <!-- Avatar -->
+      <view class="avatar-wrapper">
+        <view class="avatar">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8FF00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </view>
+      </view>
+      <!-- Username -->
+      <text class="user-name">{{userInfo.name}}</text>
+      <!-- Phone -->
+      <text class="user-phone">{{userInfo.phone}}</text>
+      <!-- Verified badge -->
+      <view class="verified-badge">
+        <text class="verified-text">已认证</text>
+      </view>
+    </view>
+
+    <!-- ===== My Vehicles Section ===== -->
+    <view class="card vehicles-card">
+      <!-- Section header -->
+      <view class="card-header">
+        <text class="card-title">我的车辆</text>
+        <text class="card-action" bindtap="onAddVehicle">添加</text>
+      </view>
+
+      <!-- Vehicle 1 -->
+      <view class="vehicle-item" bindtap="onVehicleTap" data-id="{{vehicles[0].id}}">
+        <view class="vehicle-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8FF00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-2.7-3.6A2 2 0 0013.5 5h-3a2 2 0 00-1.8 1.1L6 10l-2.5.6C2.7 10.8 2 11.6 2 12.5v3c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </view>
+        <view class="vehicle-info">
+          <text class="vehicle-plate">{{vehicles[0].plate}}</text>
+          <text class="vehicle-type">{{vehicles[0].type}}</text>
+        </view>
+      </view>
+
+      <!-- Divider -->
+      <view class="divider"></view>
+
+      <!-- Vehicle 2 -->
+      <view class="vehicle-item" bindtap="onVehicleTap" data-id="{{vehicles[1].id}}">
+        <view class="vehicle-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8FF00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-2.7-3.6A2 2 0 0013.5 5h-3a2 2 0 00-1.8 1.1L6 10l-2.5.6C2.7 10.8 2 11.6 2 12.5v3c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </view>
+        <view class="vehicle-info">
+          <text class="vehicle-plate">{{vehicles[1].plate}}</text>
+          <text class="vehicle-type">{{vehicles[1].type}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- ===== QR Code Section ===== -->
+    <view class="card qr-section">
+      <!-- Section header -->
+      <view class="card-header">
+        <text class="card-title">挪车二维码</text>
+        <text class="card-action primary" bindtap="onGenerateQR">生成</text>
+      </view>
+      <!-- Description -->
+      <text class="qr-description">将二维码贴在车内，他人扫码即可通知你挪车</text>
+
+      <!-- QR Code display area (centered) -->
+      <view class="qr-display-wrapper">
+        <view class="qr-container">
+          <!-- QR code visualization (7x7 grid) -->
+          <view class="qr-grid">
+            <!-- Row 1 -->
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <!-- Row 2 -->
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <!-- Row 3 -->
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <!-- Row 4 -->
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <!-- Row 5 -->
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <!-- Row 6 -->
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <!-- Row 7 -->
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell filled"></view>
+            <view class="qr-cell empty"></view>
+          </view>
+        </view>
+        <!-- Plate number below QR -->
+        <text class="qr-plate">{{selectedVehicle.plate}}</text>
+        <text class="qr-hint">长按保存二维码</text>
+      </view>
+
+      <!-- Action buttons row -->
+      <view class="qr-button-row">
+        <view class="btn btn-outline" bindtap="onChangeVehicle">
+          <text class="btn-outline-text">更换车牌</text>
+        </view>
+        <view class="btn btn-primary-solid" bindtap="onShareQR">
+          <text class="btn-primary-solid-text">分享二维码</text>
+        </view>
+      </view>
+
+      <!-- Usage tips -->
+      <text class="qr-tips">将二维码打印后放置在仪表盘上方，方便他人扫码通知</text>
+    </view>
+
+    <!-- ===== Statistics Card ===== -->
+    <view class="card stats-card">
+      <view class="stats-row">
+        <view class="stat-item">
+          <text class="stat-value">{{stats.notifyCount}}</text>
+          <text class="stat-label">通知次数</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <text class="stat-value">{{stats.successRate}}</text>
+          <text class="stat-label">成功率</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <text class="stat-value">{{stats.rating}}</text>
+          <text class="stat-label">评分</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- ===== Settings List ===== -->
+    <view class="card settings-card">
+      <!-- Row 1: 消息设置 -->
+      <view class="settings-item" bindtap="onSettingTap" data-type="message">
+        <text class="settings-label">消息设置</text>
+        <svg class="settings-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.36)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </view>
+      <view class="divider" style="margin-left: 16px;"></view>
+      <!-- Row 2: 隐私设置 -->
+      <view class="settings-item" bindtap="onSettingTap" data-type="privacy">
+        <text class="settings-label">隐私设置</text>
+        <svg class="settings-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.36)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </view>
+      <view class="divider" style="margin-left: 16px;"></view>
+      <!-- Row 3: 通知免打扰 -->
+      <view class="settings-item" bindtap="onSettingTap" data-type="dnd">
+        <text class="settings-label">通知免打扰</text>
+        <view class="settings-right">
+          <view class="toggle-switch active"></view>
+          <svg class="settings-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.36)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </view>
+      </view>
+      <view class="divider" style="margin-left: 16px;"></view>
+      <!-- Row 4: 帮助与反馈 -->
+      <view class="settings-item" bindtap="onSettingTap" data-type="help">
+        <text class="settings-label">帮助与反馈</text>
+        <svg class="settings-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.36)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </view>
+      <view class="divider" style="margin-left: 16px;"></view>
+      <!-- Row 5: 关于DI挪车 -->
+      <view class="settings-item" bindtap="onSettingTap" data-type="about">
+        <text class="settings-label">关于DI挪车</text>
+        <svg class="settings-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.36)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </view>
+    </view>
+
+    <!-- ===== Bottom Action ===== -->
+    <view class="logout-wrapper">
+      <text class="logout-text" bindtap="onLogout">退出登录</text>
+    </view>
+
+  </scroll-view>
+</view>
