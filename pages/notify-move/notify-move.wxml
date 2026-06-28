@@ -1,0 +1,92 @@
+<view class="page-container bg-page">
+  <!-- 状态栏区域 -->
+  <view class="status-bar">
+    <text class="status-time">9:41</text>
+    <view class="status-icons">
+      <view class="signal-icon"></view>
+      <view class="wifi-icon"></view>
+      <view class="battery-icon"></view>
+    </view>
+  </view>
+
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <text class="page-title font-bold">通知挪车</text>
+    <text class="page-subtitle text-tertiary">共 {{notificationCount}} 条记录</text>
+  </view>
+
+  <!-- 筛选标签栏 -->
+  <scroll-view class="filter-tabs no-scrollbar" scroll-x="{{true}}" enable-flex="{{true}}">
+    <view class="filter-tabs-inner">
+      <view
+        class="filter-btn {{activeFilter === 'all' ? 'active' : ''}}"
+        data-filter="all"
+        bindtap="onFilterTap"
+      >
+        <text class="filter-btn-text">全部</text>
+      </view>
+      <view
+        class="filter-btn {{activeFilter === 'pending' ? 'active' : ''}}"
+        data-filter="pending"
+        bindtap="onFilterTap"
+      >
+        <text class="filter-btn-text">待处理</text>
+        <view class="red-dot" wx:if="{{activeFilter !== 'pending'}}"></view>
+      </view>
+      <view
+        class="filter-btn {{activeFilter === 'notified' ? 'active' : ''}}"
+        data-filter="notified"
+        bindtap="onFilterTap"
+      >
+        <text class="filter-btn-text">已通知</text>
+      </view>
+      <view
+        class="filter-btn {{activeFilter === 'completed' ? 'active' : ''}}"
+        data-filter="completed"
+        bindtap="onFilterTap"
+      >
+        <text class="filter-btn-text">已处理</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 通知列表 -->
+  <scroll-view class="notification-list" scroll-y="{{true}}">
+    <view
+      class="notification-card {{item.cardBorderClass}}"
+      wx:for="{{filteredNotifications}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onNotificationTap"
+    >
+      <!-- 左侧边框和内容 -->
+      <view class="card-content">
+        <!-- 标签和时间 -->
+        <view class="card-header-row">
+          <view class="badge badge-{{item.badgeClass}}">
+            <text class="badge-text">{{item.badge}}</text>
+          </view>
+          <text class="card-time text-tertiary">{{item.time}}</text>
+        </view>
+
+        <!-- 标题 -->
+        <text class="card-title">{{item.title}}</text>
+
+        <!-- 位置信息（如果有） -->
+        <view class="card-location" wx:if="{{item.location}}">
+          <text class="card-location-text text-secondary">{{item.location}}</text>
+        </view>
+
+        <!-- 状态 -->
+        <view class="card-status-row">
+          <text class="card-status status-{{item.statusClass}}">{{item.status}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{filteredNotifications.length === 0}}">
+      <text class="empty-state-text text-tertiary">暂无通知记录</text>
+    </view>
+  </scroll-view>
+</view>
