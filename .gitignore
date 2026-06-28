@@ -1,0 +1,33 @@
+# 小程序项目忽略文件
+
+# 日志
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.temp
+
+# 构建产物
+miniprogram_npm/
+node_modules/
+
+# 配置文件（敏感信息）
+project.private.config.json
+
+# 缓存
+.cache/
