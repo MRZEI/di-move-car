@@ -1,0 +1,340 @@
+@import '/style/shared.wxss';
+
+.page-container {
+  min-height: 100vh;
+  background-color: #0A0A0A;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Status Bar */
+.status-bar {
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #0A0A0A;
+}
+
+.status-time {
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-signal {
+  font-size: 8px;
+  color: #FFFFFF;
+  letter-spacing: -2px;
+}
+
+.icon-wifi {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.icon-battery {
+  font-size: 10px;
+  color: #FFFFFF;
+  letter-spacing: -1px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #0A0A0A;
+}
+
+.nav-back {
+  display: flex;
+  align-items: center;
+  min-width: 60px;
+}
+
+.back-icon {
+  font-size: 20px;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.back-text {
+  font-size: 16px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.nav-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.nav-placeholder {
+  min-width: 60px;
+}
+
+/* Content Area */
+.content-area {
+  flex: 1;
+  padding-bottom: 0;
+}
+
+/* Status Hero Section */
+.status-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 20px;
+}
+
+.status-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #F87171;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.car-icon {
+  font-size: 36px;
+}
+
+.status-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.status-subtitle {
+  font-size: 13px;
+  color: #8E8E93;
+}
+
+/* License Plate Card */
+.plate-card {
+  width: 280px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1C1C1E;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #2C2C2E;
+}
+
+.plate-number {
+  font-size: 28px;
+  font-weight: bold;
+  color: #FFFFFF;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+
+.plate-type {
+  font-size: 12px;
+  color: #8E8E93;
+  margin-bottom: 12px;
+}
+
+.block-time {
+  font-size: 13px;
+  color: #8E8E93;
+}
+
+/* Location Info Card */
+.location-card {
+  margin: 16px 16px;
+  padding: 16px;
+  background-color: #1C1C1E;
+  border-radius: 12px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.address-text {
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.map-placeholder {
+  height: 80px;
+  background-color: #2C2C2E;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.map-text {
+  font-size: 13px;
+  color: #E8FF00;
+}
+
+.parking-info {
+  font-size: 12px;
+  color: #8E8E93;
+}
+
+/* Timeline Section */
+.timeline-section {
+  margin: 16px 16px;
+  padding: 16px;
+  background-color: #1C1C1E;
+  border-radius: 12px;
+}
+
+.timeline-item {
+  display: flex;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #34C759;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.check-icon {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.pending-dot {
+  background-color: #3A3A3C;
+}
+
+.pending-icon {
+  font-size: 14px;
+  color: #8E8E93;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 11px;
+  top: 24px;
+  width: 2px;
+  height: calc(100% - 24px);
+  background-color: #34C759;
+}
+
+.timeline-line.last {
+  background-color: #3A3A3C;
+}
+
+.timeline-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2px;
+}
+
+.timeline-title {
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.timeline-time {
+  font-size: 12px;
+  color: #8E8E93;
+  margin-bottom: 2px;
+}
+
+.timeline-time.warning {
+  color: #FF9F0A;
+}
+
+.timeline-desc {
+  font-size: 12px;
+  color: #8E8E93;
+}
+
+/* Bottom Spacer */
+.bottom-spacer {
+  height: 83px;
+}
+
+/* Bottom Action Bar */
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 83px;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  background-color: #0A0A0A;
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remind-btn {
+  border: 1.5px solid #E8FF00;
+  background-color: transparent;
+}
+
+.remind-text {
+  font-size: 15px;
+  color: #E8FF00;
+}
+
+.call-btn {
+  background-color: #E8FF00;
+}
+
+.call-text {
+  font-size: 15px;
+  color: #181818;
+  font-weight: 600;
+}
+
+/* Hidden Tab Bar */
+.tab-bar {
+  display: none;
+}
